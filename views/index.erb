@@ -6,7 +6,10 @@
     AppRouter = Backbone.Router.extend({
       routes: {
         "shorten": "showNewLinkForm",
-        "index": "showListOfLinks"
+        "index": "showListOfLinks",
+        "login": "showLogin",
+        "signup": "showSignup",
+        "register": "registerAndShowLogin",
       },
 
       showNewLinkForm: function() {
@@ -15,6 +18,19 @@
 
       showListOfLinks: function() {
         app.renderIndexView();
+      },
+
+      showLogin: function() {
+        app.renderUserView();
+      },
+
+      showSignup: function() {
+        app.renderSignupView();
+      },
+
+      registerAndShowLogin: function() {
+        //Do registration stuff
+        app.renderUserView();
       }
     });
 

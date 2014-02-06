@@ -49,6 +49,10 @@ class Click < ActiveRecord::Base
     belongs_to :link, counter_cache: :visits
 end
 
+class User < ActiveRecord::Base
+end
+
+
 ###########################################################
 # Routes
 ###########################################################
