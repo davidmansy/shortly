@@ -4,22 +4,29 @@ window.Shortly = Backbone.View.extend({
       <h1>Shortly</h1> \
       <div class="navigation"> \
       <ul> \
-        <li><a href="#" class="index">All Links</a></li> \
-        <li><a href="#" class="create">Shorten</a></li> \
+        <li><a href="index" class="index">All Links</a></li> \
+        <li><a href="shorten" class="create">Shorten</a></li> \
       </ul> \
       </div> \
       <div id="container"></div>'
   ),
 
   events: {
-    "click li a.index":  "renderIndexView",
-    "click li a.create": "renderCreateView"
+    "click li a.index": function(e) {
+      e.preventDefault();
+      Backbone.history.navigate("index", {trigger: true});      
+    },
+    "click li a.create": function(e) {
+      e.preventDefault();
+      Backbone.history.navigate("shorten", {trigger: true});
+    }
   },
 
   initialize: function(){
     console.log( "Shortly is running" );
     $('body').append(this.render().el);
     this.renderIndexView(); // default view
+    //NEW******
   },
 
   render: function(){

@@ -1,5 +1,25 @@
 <script>
   $(function(){
-    new Shortly();
+
+    var app = new Shortly();
+
+    AppRouter = Backbone.Router.extend({
+      routes: {
+        "shorten": "showNewLinkForm",
+        "index": "showListOfLinks"
+      },
+
+      showNewLinkForm: function() {
+        app.renderCreateView();
+      },
+
+      showListOfLinks: function() {
+        app.renderIndexView();
+      }
+    });
+
+    var appRouter = new AppRouter();
+    Backbone.history.start({pushState: true}); //NEW
+
   });
 </script>
